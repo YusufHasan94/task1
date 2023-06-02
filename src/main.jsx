@@ -8,6 +8,7 @@ import {
 import App from './App';
 import Main from './components/Main/Main';
 import ShowDetails from './components/ShowDetails/ShowDetails';
+import Booking from './components/Booking/Booking';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
       {
         path: "/show/:id",
         element: <ShowDetails></ShowDetails>,
+        loader: ({params}) => fetch('https://api.tvmaze.com/search/shows?q=all')
+      },
+      {
+        path: "/booking/:id",
+        element: <Booking></Booking>,
         loader: ({params}) => fetch('https://api.tvmaze.com/search/shows?q=all')
       }
     ]

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const ShowDetails = () => {
     const [shows, setShows] = useState([]);
@@ -24,6 +24,9 @@ const ShowDetails = () => {
                 <p className="text-md py-0.5"><span className='font-semibold'>Rating: </span> 
                     {shows.show?.rating?.average ? shows.show?.rating?.average: 0}/10
                 </p>
+                <Link to={`/booking/${showList.id}`}>
+                    <button className='btn btn-primary'>Book Ticket</button>
+                </Link>
                 </div>
             </div>
         </div>
